@@ -11,14 +11,12 @@
 import React from 'react'
 import { StatusBar } from 'react-native'
 
-import { Colors } from 'react-native/Libraries/NewAppScreen'
-
 import Routes from './src/routes'
 
 const App = () => {
 	return (
 		<>
-			<StatusBar barStyle="dark-content" backgroundColor={Colors.lighter} />
+			<StatusBar barStyle="light-content" backgroundColor="#1b1c1e" />
 			<Routes />
 		</>
 	)
