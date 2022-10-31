@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 export const BoxInput = styled.View`
@@ -13,8 +13,15 @@ export const InputIcon = styled.Text`
 	margin-right: ${RFValue(10)}px;
 `
 
-export const Input = styled.TextInput`
-	height: ${RFValue(35)}px;
-	flex: 1;
-	padding: 0;
+type InputProps = {
+	color: string
+}
+
+export const Input = styled.TextInput<InputProps>`
+	${({ color }) => css`
+		height: ${RFValue(35)}px;
+		flex: 1;
+		padding: 0;
+		color: ${color};
+	`}
 `

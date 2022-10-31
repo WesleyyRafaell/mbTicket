@@ -5,17 +5,31 @@ import * as S from './styles'
 
 type InputProps = {
 	nameIcon: string
+	colorIcon?: string
 	placeholder: string
+	placeholderColor?: string
 	size: number
+	color?: string
 }
 
-const Input = ({ nameIcon, placeholder, size }: InputProps) => {
+const Input = ({
+	nameIcon,
+	colorIcon = '#A0A0A0',
+	placeholder,
+	placeholderColor = '#A0A0A0',
+	size,
+	color = '#A0A0A0'
+}: InputProps) => {
 	return (
 		<S.BoxInput>
 			<S.InputIcon>
-				<Icon name={nameIcon} size={size} color="#A0A0A0" />
+				<Icon name={nameIcon} size={size} color={colorIcon} />
 			</S.InputIcon>
-			<S.Input placeholder={placeholder} />
+			<S.Input
+				color={color}
+				placeholder={placeholder}
+				placeholderTextColor={placeholderColor}
+			/>
 		</S.BoxInput>
 	)
 }
