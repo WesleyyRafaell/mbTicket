@@ -14,16 +14,16 @@ export default function Routes() {
 	return (
 		<NavigationContainer>
 			<Tab.Navigator
-				initialRouteName="HomeTab"
+				initialRouteName="Home"
 				screenOptions={({ route }) => ({
 					tabBarIcon: ({ focused, color, size }) => {
 						let iconName = 'add'
 
-						if (route.name === 'HomeTab') {
+						if (route.name === 'Home') {
 							iconName = focused ? 'home-sharp' : 'home-outline'
-						} else if (route.name === 'Tickets') {
+						} else if (route.name === 'Ingressos') {
 							iconName = focused ? 'wallet' : 'wallet-outline'
-						} else if (route.name === 'Favorites') {
+						} else if (route.name === 'Favoritos') {
 							iconName = focused ? 'ios-heart-sharp' : 'ios-heart-outline'
 						} else if (route.name === 'Perfil') {
 							iconName = focused ? 'person' : 'person-outline'
@@ -36,9 +36,9 @@ export default function Routes() {
 					headerShown: false
 				})}
 			>
-				<Tab.Screen name="HomeTab" component={Home} />
-				<Tab.Screen name="Tickets" component={Tickets} />
-				<Tab.Screen name="Favorites" component={Favorites} />
+				<Tab.Screen name="Home" component={Home} />
+				<Tab.Screen name="Ingressos" component={Tickets} />
+				<Tab.Screen name="Favoritos" component={Favorites} />
 				<Tab.Screen name="Perfil" component={Perfil} />
 			</Tab.Navigator>
 		</NavigationContainer>

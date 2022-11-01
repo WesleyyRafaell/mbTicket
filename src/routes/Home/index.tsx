@@ -14,9 +14,9 @@ function Routes() {
 			screenOptions={{
 				headerShown: false
 			}}
-			initialRouteName="Home"
+			initialRouteName="HomeStack"
 		>
-			<Stack.Screen name="Home" component={Home} />
+			<Stack.Screen name="HomeStack" component={Home} />
 			<Stack.Screen name="Login" component={Login} />
 		</Stack.Navigator>
 	)
