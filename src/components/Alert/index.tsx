@@ -2,29 +2,39 @@ import React, { useEffect } from 'react'
 import AwesomeAlert from 'react-native-awesome-alerts'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store'
-import { closeAlert } from '../../store/System/System.store'
+import { closeAlert } from '../../store/System/Alert.store'
 
 const Alert = () => {
 	const dispatch = useDispatch()
-	const { showAlert, message } = useSelector((state: RootState) => state.system)
+	const { settings } = useSelector((state: RootState) => state.alert)
 
 	useEffect(() => {
-		if (showAlert) {
+		if (settings?.show) {
 			setTimeout(function () {
-				dispatch(closeAlert())
+				dispatch(closeAlert({ show: false, name: '', type: 'success' }))
 			}, 5000)
 		}
-	}, [dispatch, showAlert])
+	}, [dispatch, settings])
+
+	const typeAlert = {
+		danger: '#851515',
+		success: '#0cc91b'
+	}
 
 	return (
 		<AwesomeAlert
-			show={showAlert}
+			show={settings?.show}
 			showProgress={false}
-			title={message}
+			title={settings?.title}
 			closeOnTouchOutside={true}
 			closeOnHardwareBackPress={false}
-			contentContainerStyle={{ backgroundColor: 'red' }}
-			contentStyle={{ backgroundColor: 'red' }}
+			contentContainerStyle={{
+				backgroundColor: typeAlert[settings?.type]
+			}}
+			contentStyle={{
+				backgroundColor: typeAlert[settings?.type]
+			}}
+			titleStyle={{ color: '#fff' }}
 		/>
 	)
 }

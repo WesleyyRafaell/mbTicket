@@ -9,7 +9,7 @@ import ImageSlide from '../../components/ImageSlide'
 // components
 import Input from '../../components/Input'
 import Logo from '../../components/Logo'
-import { openAlert } from '../../store/System/System.store'
+import { openAlert } from '../../store/System/Alert.store'
 
 import * as S from './styles'
 
@@ -24,7 +24,17 @@ const Home = () => {
 			</S.Header>
 			<ImageSlide />
 			<S.Main>
-				<TouchableOpacity onPress={() => dispatch(openAlert('teste'))}>
+				<TouchableOpacity
+					onPress={() =>
+						dispatch(
+							openAlert({
+								show: true,
+								title: 'Operação realizada com sucesso',
+								type: 'danger'
+							})
+						)
+					}
+				>
 					<S.Text>oi</S.Text>
 				</TouchableOpacity>
 				<S.FilterContainer>

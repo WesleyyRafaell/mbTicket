@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import systemReducer from './System/System.store'
+import alertReducer from './System/Alert.store'
 
 export const store = configureStore({
 	reducer: {
-		system: systemReducer
+		alert: alertReducer
 	}
 })
 
