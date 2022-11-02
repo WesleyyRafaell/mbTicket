@@ -17,7 +17,6 @@ function Routes() {
 			initialRouteName="HomeStack"
 		>
 			<Stack.Screen name="HomeStack" component={Home} />
-			<Stack.Screen name="Login" component={Login} />
 		</Stack.Navigator>
 	)
 }
