@@ -7,8 +7,12 @@ import Input from '../../components/Input'
 import Logo from '../../components/Logo'
 
 import * as S from './styles'
+import { RootState } from '../../store'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
+	const { events } = useSelector((state: RootState) => state.event)
+
 	return (
 		<S.Container>
 			<S.Header>
@@ -24,9 +28,17 @@ const Home = () => {
 					</S.FilterButton>
 				</S.FilterContainer>
 				<S.ContainerCard>
-					<CardEvent />
-					<CardEvent />
-					<CardEvent />
+					{events.map((item) => (
+						<CardEvent
+							key={item.id}
+							id={item.id}
+							address={item.address}
+							image={item.image}
+							start_date={item.start_date}
+							end_date={item.end_date}
+							name={item.name}
+						/>
+					))}
 				</S.ContainerCard>
 			</S.Main>
 		</S.Container>

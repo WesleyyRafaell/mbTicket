@@ -7,7 +7,13 @@ import Login from './../pages/Login'
 import TabRoutes from './tabRoutes'
 import SplashScreen from '../pages/SplashScreen'
 
-const Stack = createNativeStackNavigator()
+export type RootStackParamList = {
+	SplashScreen: { name: string }
+	Login: { name: string }
+	TabRoutes: { name: string }
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 function Routes() {
 	return (

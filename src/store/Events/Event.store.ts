@@ -6,9 +6,7 @@ type Event = {
 	end_date: string
 	name: string
 	image: string
-	address: {
-		name: string
-	}
+	address: string
 }
 
 type Events = {
