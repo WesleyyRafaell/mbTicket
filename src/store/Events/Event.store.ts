@@ -7,6 +7,7 @@ type Event = {
 	name: string
 	image: string
 	address: string
+	favorite: boolean
 }
 
 type Events = {

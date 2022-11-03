@@ -1,7 +1,7 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
-export const Card = styled.View`
+export const Card = styled.TouchableOpacity`
 	width: ${RFValue(150)}px;
 	border-radius: ${RFValue(10)}px;
 	overflow: hidden;
@@ -20,16 +20,22 @@ export const BackgroundCard = styled.ImageBackground`
 	height: 100%;
 `
 
-export const ContainerFavorite = styled.TouchableOpacity`
-	width: ${RFValue(30)}px;
-	height: ${RFValue(30)}px;
-	border-radius: ${RFValue(30)}px;
-	justify-content: center;
-	align-items: center;
-	background-color: #fafafa;
-	position: absolute;
-	top: 50%;
-	right: 5%;
+type ContainerFavoriteProps = {
+	favorite: boolean
+}
+
+export const ContainerFavorite = styled.TouchableOpacity<ContainerFavoriteProps>`
+	${({ favorite }) => css`
+		width: ${RFValue(30)}px;
+		height: ${RFValue(30)}px;
+		border-radius: ${RFValue(30)}px;
+		justify-content: center;
+		align-items: center;
+		background-color: ${favorite ? '#F5346C' : '#fafafa'};
+		position: absolute;
+		top: 50%;
+		right: 5%;
+	`}
 `
 export const MainCard = styled.View`
 	padding: ${RFValue(5)}px;

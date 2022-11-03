@@ -61,8 +61,6 @@ const SplashScreen = ({ navigation }: any) => {
 
 		const formatedArrayEventsData = formatArray(result.data)
 
-		console.log()
-
 		dispatch(addEvents(formatedArrayEventsData))
 		navigation.navigate('TabRoutes')
 	}
@@ -76,7 +74,8 @@ const SplashScreen = ({ navigation }: any) => {
 					end_date,
 					name,
 					image,
-					address: address.name
+					address: address.name,
+					favorite: false
 				}
 			}
 		)
