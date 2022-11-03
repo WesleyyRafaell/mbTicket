@@ -28,6 +28,11 @@ const Favorites = ({ navigation }: any) => {
 		}
 	}
 
+	const handleNavigation = (id: string) => {
+		console.log(id)
+		navigation.navigate('EventDetail', { id })
+	}
+
 	return (
 		<S.Container>
 			<S.Header>
@@ -52,6 +57,7 @@ const Favorites = ({ navigation }: any) => {
 								name={item.name}
 								favorite={item.favorite}
 								updateFavorites={() => getFavoritesAsyncStorage()}
+								navigate={(id) => handleNavigation(id)}
 							/>
 						))}
 					</S.ContainerCard>
