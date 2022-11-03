@@ -5,11 +5,12 @@ import * as S from './styles'
 
 type ButtonProps = {
 	children: React.ReactNode
+	onPress?: () => void
 }
 
-const Button = ({ children }: ButtonProps) => {
+const Button = ({ children, onPress }: ButtonProps) => {
 	return (
-		<S.ButtonLogin>
+		<S.ButtonLogin onPress={onPress}>
 			<LinearGradient
 				start={{ x: 0, y: 0 }}
 				end={{ x: 1, y: 0 }}

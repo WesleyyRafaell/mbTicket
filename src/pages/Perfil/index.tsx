@@ -6,7 +6,7 @@ import Button from '../../components/Button'
 import * as S from './styles'
 import ButtonOutline from '../../components/ButtonOutline'
 
-const Perfil = () => {
+const Perfil = ({ navigation }: any) => {
 	return (
 		<S.Container>
 			<S.Header>
@@ -52,7 +52,9 @@ const Perfil = () => {
 					</S.WrapperBoxOption>
 				</S.BoxOption>
 				<S.ContainerButtonOutline>
-					<ButtonOutline>Sair</ButtonOutline>
+					<ButtonOutline onPress={() => navigation.navigate('Login')}>
+						Sair
+					</ButtonOutline>
 				</S.ContainerButtonOutline>
 			</S.Main>
 		</S.Container>

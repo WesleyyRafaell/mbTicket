@@ -9,7 +9,7 @@ import Title from '../../components/Title'
 
 import * as S from './styles'
 
-const Login = () => {
+const Login = ({ navigation }: any) => {
 	return (
 		<S.Container>
 			<S.Header>
@@ -30,7 +30,7 @@ const Login = () => {
 						</S.ButtonForgotPass>
 					</S.WrapperForgotPass>
 					<S.ContainerButtonLogin>
-						<Button>Login</Button>
+						<Button onPress={() => navigation.navigate('Home')}>Login</Button>
 					</S.ContainerButtonLogin>
 					<S.WrapperButtonFacebook>
 						<Icon name="facebook-square" size={30} color="#0097FF" />
