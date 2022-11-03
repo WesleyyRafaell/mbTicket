@@ -9,7 +9,6 @@ import Logo from '../../components/Logo'
 import * as S from './styles'
 import { RootState } from '../../store'
 import { useSelector } from 'react-redux'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { getArrayEventsStorage } from '../../utils/eventsStorage'
 
 const Home = ({ navigation }: any) => {
@@ -51,6 +50,11 @@ const Home = ({ navigation }: any) => {
 		}
 	}
 
+	const handleNavigation = (id: string) => {
+		console.log(id)
+		navigation.navigate('EventDetail', { id })
+	}
+
 	return (
 		<S.Container>
 			<S.Header>
@@ -66,7 +70,6 @@ const Home = ({ navigation }: any) => {
 					</S.FilterButton>
 				</S.FilterContainer>
 				<S.ContainerCard>
-					{/* {console.log(`eventsssssssss`, eventsHome)} */}
 					{eventsHome.map((item) => (
 						<CardEvent
 							key={item.id}
@@ -78,6 +81,7 @@ const Home = ({ navigation }: any) => {
 							name={item.name}
 							favorite={item.favorite}
 							updateFavorites={() => getFavoritesAsyncStorage()}
+							navigate={(id) => handleNavigation(id)}
 						/>
 					))}
 				</S.ContainerCard>

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { format } from 'date-fns'
 
 import * as S from './styles'
-import { useDispatch } from 'react-redux'
-import { addEvents } from '../../store/Events/Event.store'
+
 import { getArrayEventsStorage } from '../../utils/eventsStorage'
 
 export type CardEventProps = {
@@ -17,6 +16,7 @@ export type CardEventProps = {
 	name: string
 	favorite: boolean
 	updateFavorites?: () => void
+	navigate: (id: string) => void
 }
 
 const CardEvent = ({
@@ -27,23 +27,18 @@ const CardEvent = ({
 	image,
 	name,
 	favorite,
-	updateFavorites
+	updateFavorites,
+	navigate
 }: CardEventProps) => {
-	const [handleFavorite, setHandleFavorite] = useState(favorite)
-
 	const setFavoriteCard = async () => {
 		try {
-			if (handleFavorite) {
-				setHandleFavorite(false)
-
+			if (favorite) {
 				await removeFavorite()
 
 				updateFavorites!()
 
 				return
 			}
-
-			setHandleFavorite(true)
 
 			await setFavorites()
 
@@ -86,7 +81,7 @@ const CardEvent = ({
 	}
 
 	return (
-		<S.Card onPress={() => console.log(`oi card`)}>
+		<S.Card onPress={() => navigate(id)}>
 			<S.HeaderCard>
 				<S.BackgroundCard source={{ uri: image }} />
 				<S.ContainerFavorite favorite={favorite} onPress={setFavoriteCard}>
